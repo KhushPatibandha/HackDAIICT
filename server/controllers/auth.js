@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { Admin } from "mongodb"
+import Admin from "../model/Admin.js"
 
 // REGISTER PATH
 export const register = async(req, res) => {
@@ -14,13 +14,13 @@ export const register = async(req, res) => {
         } = req.body
         const salt = await bcrypt.genSalt()
         const passwordHash = await bcrypt.hash(password, salt)
-        const newAdmin = {
+        const newAdmin = new Admin({
             firstName,
             lastName,
             doctorId,
             email,
             password: passwordHash
-        }
+        })
         const savedAdmin = await newAdmin.save()
         res.status(201).json(savedAdmin)
     } catch (error) {
