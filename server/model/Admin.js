@@ -1,5 +1,5 @@
+// THIS ONE IS CLEAR. NO CHNAGES NEEDED.
 import mongoose from "mongoose";
-
 
 const adminSchema = new mongoose.Schema({
     firstName: {

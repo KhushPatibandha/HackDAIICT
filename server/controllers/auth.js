@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import Admin from "../model/Admin.js"
 
-// REGISTER PATH
+// REGISTER LOGIC
 export const register = async(req, res) => {
     try {
         const {
@@ -28,7 +28,7 @@ export const register = async(req, res) => {
     }
 }
 
-// LOGIN PATH
+// LOGIN LOGIC
 export const login = async(req, res) => {
     try {
         const { doctorId, password } = req.body
