@@ -3,8 +3,23 @@ import Navbar from "./components/Navbar/Navbar";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import Card  from "./components/Card";
+import SignIn from "./components/SignIn";
+import CreateForm from "./components/UserRegistration";
+import InfoCard from "./components/InfoCard";
+import data from "./data"
+import Text from "./components/Text";
 
 export default function App() {
+
+    const infocards = data.map(item => {
+        return (
+            <InfoCard
+                key={item.id}
+                {...item}
+                
+            />
+        )
+    })
 
     return (
         <div>
@@ -19,7 +34,13 @@ export default function App() {
             <Card />
             <Card />
             <Card />
-            <Footer/>
+            <Text />
+            <section>
+                {infocards}
+            </section>
+            <Footer/> 
+            {/* <SignIn />
+            <CreateForm /> */}
         </div>
     );
 }
