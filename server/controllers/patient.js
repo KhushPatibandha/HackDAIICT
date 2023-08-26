@@ -56,12 +56,30 @@ export const postPatient = async(req, res) => {
     }
 }
 
+// GET HISTORY OF PATIENT PRESCRIPTIONS
 export const getPatientHistory = async(req, res) => {
     try {
         const { abdmNumber } = req.params
         const patient = await Patient.findOne({ abdmNumber })
         res.status(200).json(patient.prescriptionHistory)
 
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
+// UPDATE PATIENT
+export const updatePatient = async(req, res) => {
+    try {
+        const { abdmNumber } = req.params
+        const updatedData = req.body
+        const patient = await Patient.findOne({ abdmNumber })
+        if(!patient) {
+            return res.status(404).json({ message: 'Patient not found' })
+        }
+        Object.assign(patient, updatedData)
+        const updatePatient = await patient.save()
+        res.status(201).json(updatePatient)
     } catch (error) {
         res.status(404).json({ message: error.message })
     }
