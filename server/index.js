@@ -7,6 +7,7 @@ import multer from "multer"
 import helmet from "helmet"
 import morgan from "morgan"
 import path from "path"
+import ocrSpaceApi from 'ocr-space-api-wrapper';
 import { fileURLToPath } from "url"
 import authRoutes from "./routes/auth.js"
 import patientRouters from "./routes/patient.js"
@@ -38,7 +39,6 @@ const upload = multer({ storage })
 
 // ROUTES WITH FILES
 // FOR OCR
-
 
 
 // ROUTES
