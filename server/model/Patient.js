@@ -1,5 +1,34 @@
 import mongoose from "mongoose";
-import Prescription from "./Prescription";
+
+// Dosage Schema
+const dosageSchema = new mongoose.Schema({
+    dosage: {
+        type: String,
+        required: true
+    },
+    frequency: {
+        type: String,
+        required: true
+    }
+}, { timestamps: true })
+
+// Prescription History Schema
+const prescriptionHistorySchema = new mongoose.Schema({
+    medicineName: {
+        type: String
+    },
+    dosage: [dosageSchema]
+}, { timestamps: true })
+
+// Prescription Schema
+const prescriptionSchema = new mongoose.Schema({
+    medicineName: {
+        type: String,
+        required: true
+    },
+    dosage: [dosageSchema]
+}, { timestamps: true })
+
 // Patient Schema
 const patientSchema = new mongoose.Schema({
     firstName: {
@@ -30,8 +59,9 @@ const patientSchema = new mongoose.Schema({
     prevailingIllness: {
         type: String
     },
-    prescriptions: [Prescription] // Reference to prescriptions
-}, { timestamps: true });
+    prescriptions: [prescriptionSchema], // Reference to prescriptions
+    prescriptionHistory: [prescriptionHistorySchema] // Reference to prescription history of the patient 
+}, { timestamps: true })
 
 const Patient = mongoose.model("Patient", patientSchema);
 export default Patient;
