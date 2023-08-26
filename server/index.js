@@ -5,6 +5,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import path from "path"
 import { fileURLToPath } from "url"
+import authRoutes from "./routes/auth.js"
+import patientRouters from "./routes/patient.js"
 
 // CONFIGURATIONS 
 const __filename = fileURLToPath(import.meta.url)
@@ -14,7 +16,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-// 
+// ROUTES
+app.use("/auth", authRoutes)
+app.use("/patient", patientRouters)
+
+
+// MONGOOSE SETUP
 const PORT = process.env.PORT || 6001
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
