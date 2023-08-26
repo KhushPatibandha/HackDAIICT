@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SignIn() {
+function App() {
     const [contact, setContact] = useState({
         fname: "",
         lname: "",
@@ -58,10 +58,14 @@ function SignIn() {
                     name="email"
                     placeholder="Email"
                 />
-                <button>SignIn</button>
+                <input
+                    name="doctorid"
+                    placeholder="Your Id"
+                />
+                <button>SIgn In</button>
             </form>
         </div>
     );
 }
 
-export default SignIn;
+export default App;
