@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from "/Users/Dell/Desktop/HackDAIICTfork/HackDAIICT-fork/alpha/src/assets/new_logo.PNG";
+import logo from "/Users/Dell/Desktop/HackDAIICT-fork/server/client/alpha/src/assets/new_logo.PNG";
 
 function NavScrollExample() {
 
