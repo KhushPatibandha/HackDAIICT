@@ -1,5 +1,15 @@
 import mongoose from "mongoose";
 
+// Test Schema
+const testSchema = new mongoose.Schema({
+    previousTest: {
+        type: String
+    },
+    upComingTest: {
+        type: String
+    }
+})
+
 // Dosage Schema
 const dosageSchema = new mongoose.Schema({
     dosage: {
@@ -56,11 +66,21 @@ const patientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    height: {
+        type: String,
+        required: true
+    }, 
+    weight: {
+        type: String,
+        required: true
+    },
     prevailingIllness: {
-        type: String
+        type: String,
+        required: true
     },
     prescriptions: [prescriptionSchema], // Reference to prescriptions
-    prescriptionHistory: [prescriptionHistorySchema] // Reference to prescription history of the patient 
+    prescriptionHistory: [prescriptionHistorySchema], // Reference to prescription history of the patient 
+    test: testSchema
 }, { timestamps: true })
 
 const Patient = mongoose.model("Patient", patientSchema);

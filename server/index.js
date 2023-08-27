@@ -37,7 +37,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 // ROUTES WITH FILES
-// FOR OCR 
 
 // ROUTES
 app.use("/auth", authRoutes)
